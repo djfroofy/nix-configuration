@@ -9,59 +9,13 @@
     allowUnfree = true;
   };
 
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
-
-  boot = {
-    kernelParams = [
-      "radeon.si_support=0"
-      "radeon.cik_support=0"
-      "amdgpu.si_support=1"
-      "amdgpu.cik_support=1"
-    ];
-    kernelModules = [
-       "snd-seq"
-       "snd-rawmidi"
-    ];
-  };
-
-  boot.loader = {
-    grub = {
-    	enable = true;
-    	device = "nodev";
-    	version = 2;
-    	enableCryptodisk = true;
-    };
-  };
-  
-  boot.initrd.luks.devices = [
-      {
-        name = "root";
-        device = "/dev/disk/by-uuid/a1c7d532-adc5-4b80-83f3-d59bfef75315"; # UUID for /dev/nvme01np2 
-        preLVM = true;
-        allowDiscards = true;
-      }
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./local-configuration.nix
   ];
 
 
-  networking.hostName = "drewripper";
-  networking.wireless.enable = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "Lat2-Terminus16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
-
-  # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
   # List packages installed in system profile. To search, run:
@@ -139,29 +93,8 @@
   # nable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
   # Enable sound.
   sound.enable = true;
-
-  hardware = {
-    enableAllFirmware = true;
-    pulseaudio = {
-      enable = true;
-      package = pkgs.pulseaudioFull;
-    };
-    opengl = {
-      driSupport32Bit = true;
-      enable = true;
-    };
-  };
 
 
   programs = {
@@ -175,27 +108,12 @@
       theme = "agnoster";
     };
 
-    #zsh = {
-    #  interactiveShellInit = ''
-    #  export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
-    #
-    #  ZSH_THEME="agnoster"
-    #  plugins=(git, python, rust, cargo)
-    #  source $ZSH/oh-my-zsh.sh
-    #  '';
-    #  promptInit = "";
-    #};
   };
   # Enable X window manager and xfce as default desktopManager
   #
   services.xserver = {
     enable = true;
     layout = "us";
-    useGlamor = true;
-    deviceSection = ''
-      Option "DRI" "3"
-      Option "TearFree" "on"
-      '';
     windowManager = {
       xmonad = {
         enable = true;
@@ -209,7 +127,6 @@
       };
       default = "xmonad";
     };
-    videoDrivers = [ "amdgpu" ];
   };
   #};
   # services.xserver.xkbOptions = "eurosign:e";
@@ -241,6 +158,12 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     home = "/home/nzs";
+    extraGroups = [ "wheel" "networkmanager" ];
+  };
+  users.users.mzs = {
+    shell = pkgs.zsh;
+    isNormalUser = true;
+    home = "/home/mzs";
     extraGroups = [ "wheel" "networkmanager" ];
   };
 
