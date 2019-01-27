@@ -15,7 +15,6 @@
     ./local-configuration.nix
   ];
 
-
   time.timeZone = "America/Los_Angeles";
 
   # List packages installed in system profile. To search, run:
@@ -109,8 +108,8 @@
     };
 
   };
+
   # Enable X window manager and xfce as default desktopManager
-  #
   services.xserver = {
     enable = true;
     layout = "us";
@@ -128,15 +127,9 @@
       default = "xmonad";
     };
   };
-  #};
-  # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable touchpad support.
   # services.xserver.libinput.enable = true;
-
-  # Enable the KDE Desktop Environment.
-  # services.xserver.displayManager.sddm.enable = true;
-  # services.xserver.desktopManager.plasma5.enable = true;
 
   environment.variables = {
     TERMINAL =  [ "termite" ];
