@@ -97,17 +97,18 @@
 
 
   programs = {
+
     vim = {
       defaultEditor = true;
     };
 
     zsh.ohMyZsh = {
       enable = true;
-      plugins = [ "git" "python" "rust" "cargo" ];
-      theme = "agnoster";
     };
 
   };
+
+
 
   # Enable X window manager and xfce as default desktopManager
   services.xserver = {
@@ -135,6 +136,7 @@
     TERMINAL =  [ "termite" ];
     OH_MY_ZSH = [ "${pkgs.oh-my-zsh}/share/oh-my-zsh" ];
     ZSH = [ "${pkgs.oh-my-zsh}/share/oh-my-zsh" ];
+
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -144,7 +146,10 @@
     home = "/home/dsmather";
     description = "Drew Smathers";
     extraGroups = [ "wheel" "networkmanager" ];
-    openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDG1w8RG7zAv0zxBBfwq4xJu1JH7yCYvG8SAZTfoBLmRUvAUWtlvulxaG7xW9B+gsrCKG+4c2GgN2Q1+nT08qHlceD/2zCG5tTiZ/h0BYv3nQg7D2aJ+hRBHZI1taRgImo7V/iZNIS7KOxSL+QZOl23Id4T1I64I/32qkJT6viG6GSagQ3EZVb9yzZQoATV/WZjB7VylFp7hpwlvwBeSLYotgvhgEWPizj1a06v0+WsczvENx2evZFRjrNEejCED4N5F6G1RPMced1Wxo5SOKKhZA60aw6gGl+p6fTvDQTkwefjVdnS9YMghNSpvRfJQfha/LinQEWIHlpg2lW8HBKr dsmather@dsmather-mac" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDG1w8RG7zAv0zxBBfwq4xJu1JH7yCYvG8SAZTfoBLmRUvAUWtlvulxaG7xW9B+gsrCKG+4c2GgN2Q1+nT08qHlceD/2zCG5tTiZ/h0BYv3nQg7D2aJ+hRBHZI1taRgImo7V/iZNIS7KOxSL+QZOl23Id4T1I64I/32qkJT6viG6GSagQ3EZVb9yzZQoATV/WZjB7VylFp7hpwlvwBeSLYotgvhgEWPizj1a06v0+WsczvENx2evZFRjrNEejCED4N5F6G1RPMced1Wxo5SOKKhZA60aw6gGl+p6fTvDQTkwefjVdnS9YMghNSpvRfJQfha/LinQEWIHlpg2lW8HBKr dsmather@dsmather-mac"
+      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDj78jSe33zPiThCv64GuCtP/Tn7BfOzX+kDlfbEIJABFs1Bgcl7enxCw70kUyc49xg+l8gv0Yj0Jr/Ftpr8nx3A7o2jMOL44CYJvH6gXER1bJbeg+QXBHnv654AXbTy8tjZCgkhk3nlngHEKzInzg0AjjZ9Lt3G9bfQKstADGAfTtuHQ+0jq/Lb+1pcxEOek0MGZ4GhfByN//3PqeEjMmV+a/w/iuqkQmoOeZvhhsVc/4GBKd1Gnw10QIRJw7su0+FkVfpB9Z1i78QsaFU7pBYojGjagieJMyUTZoNsGrHnjGtXopVECGkut36BbybuYzt8VkGuaWj99xw5rb19EKz dsmather@drewripper"
+  ];
 
   };
   users.users.nzs = {
