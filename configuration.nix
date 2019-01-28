@@ -25,57 +25,59 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     gcc
-     xorg.xmodmap
-     xlibs.xmodmap
-     wget
-     git
-     vim
-     tmux
-     firefox
-     blender
-     sysbench
-     rustc
-     cargo
-     zsh
-     python
-     python27Packages.virtualenv
-     ruby
-     docker
-     zip
-     unzip
-     pciutils
-     pamixer
-     paprefs
-     minetest
-     htop
-     glxinfo
-     gimp
-     termite
-     dmenu
-     oh-my-zsh
-     lolcat
-     jq
-     vscode
-     tree
-     qemu
-     chuck
-     gtypist
-     ffmpeg
-     audacity
-     racer
-     jack2
-     jack_rack
-     timemachine
-     (pkgs.mplayer.override { jackaudioSupport = true; })
-     (pkgs.mpv.override { jackaudioSupport = true; })
-     (pkgs.blender.override { jackaudioSupport = true; })
-     qjackctl
-     sysbench
-     ghc
-     fluidsynth
-     soundfont-fluid
-     haskellPackages.xmobar
+    gcc
+    lsof
+    binutils
+    xorg.xmodmap
+    xlibs.xmodmap
+    wget
+    git
+    vim
+    tmux
+    firefox
+    blender
+    sysbench
+    rustc
+    cargo
+    zsh
+    python
+    python27Packages.virtualenv
+    ruby
+    docker
+    zip
+    unzip
+    pciutils
+    pamixer
+    paprefs
+    minetest
+    htop
+    glxinfo
+    gimp
+    termite
+    dmenu
+    oh-my-zsh
+    lolcat
+    jq
+    vscode
+    tree
+    qemu
+    chuck
+    gtypist
+    ffmpeg
+    audacity
+    racer
+    jack2
+    jack_rack
+    timemachine
+    (pkgs.mplayer.override { jackaudioSupport = true; })
+    (pkgs.mpv.override { jackaudioSupport = true; })
+    (pkgs.blender.override { jackaudioSupport = true; })
+    qjackctl
+    sysbench
+    ghc
+    fluidsynth
+    soundfont-fluid
+    haskellPackages.xmobar
   ];
 
   fonts = {
