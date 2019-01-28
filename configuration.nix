@@ -25,6 +25,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+     gcc
      xorg.xmodmap
      xlibs.xmodmap
      wget
@@ -38,6 +39,7 @@
      cargo
      zsh
      python
+     python27Packages.virtualenv
      ruby
      docker
      zip
@@ -63,11 +65,16 @@
      audacity
      racer
      jack2
+     jack_rack
+     timemachine
      (pkgs.mplayer.override { jackaudioSupport = true; })
      (pkgs.mpv.override { jackaudioSupport = true; })
      (pkgs.blender.override { jackaudioSupport = true; })
      qjackctl
      sysbench
+     ghc
+     fluidsynth
+     soundfont-fluid
      haskellPackages.xmobar
   ];
 
