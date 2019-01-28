@@ -77,6 +77,7 @@
     ghc
     fluidsynth
     soundfont-fluid
+    alsaLib
     haskellPackages.xmobar
   ];
 
