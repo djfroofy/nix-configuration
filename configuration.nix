@@ -60,10 +60,12 @@
      chuck
      gtypist
      ffmpeg
-     mplayer
      audacity
      racer
      jack2
+     (pkgs.mplayer.override { jackaudioSupport = true; })
+     (pkgs.mpv.override { jackaudioSupport = true; })
+     (pkgs.blender.override { jackaudioSupport = true; })
      qjackctl
      sysbench
      haskellPackages.xmobar
