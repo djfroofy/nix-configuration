@@ -5,7 +5,6 @@
 { config, pkgs, ... }:
 {
 
-
   boot = {
     kernelParams = [
       "radeon.si_support=0"
@@ -49,7 +48,7 @@
     enableAllFirmware = true;
     pulseaudio = {
       enable = true;
-      package = pkgs.pulseaudioFull;
+      package = pkgs.pulseaudioFull.override { jackaudioSupport = true; };
     };
     opengl = {
       driSupport32Bit = true;
@@ -64,6 +63,14 @@
       Option "TearFree" "on"
       '';
     videoDrivers = [ "amdgpu" ];
+  };
+
+  musnix = {
+    kernel = {
+      realtime = true;
+      packages = pkgs.linuxPackages_4_19_rt;
+    };
+    soundcardPciId = "0a:00.3";
   };
 
 }
