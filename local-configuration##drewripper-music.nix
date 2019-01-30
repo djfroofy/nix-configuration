@@ -13,6 +13,10 @@
       "amdgpu.cik_support=1"
     ];
 
+    kernelModules = [
+       "snd-seq"
+       "snd-rawmidi"
+    ];
 
     loader = {
       grub = {
@@ -59,6 +63,14 @@
       Option "TearFree" "on"
       '';
     videoDrivers = [ "amdgpu" ];
+  };
+
+  musnix = {
+    kernel = {
+      realtime = true;
+      packages = pkgs.linuxPackages_4_19_rt;
+    };
+    soundcardPciId = "0a:00.3";
   };
 
   

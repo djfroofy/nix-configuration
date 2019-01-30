@@ -15,10 +15,7 @@
   imports = [
     ./hardware-configuration.nix
     ./local-configuration.nix
-    <musnix>
   ];
-
-  musnix.enable = true;
 
   time.timeZone = "America/Los_Angeles";
 
