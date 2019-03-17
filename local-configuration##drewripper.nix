@@ -6,6 +6,9 @@
 {
 
   boot = {
+
+    kernelPackages = pkgs.linuxPackages_4_20;
+
     kernelParams = [
       "radeon.si_support=0"
       "radeon.cik_support=0"

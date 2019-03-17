@@ -22,61 +22,117 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    gcc
-    lsof
-    binutils
+
+    # X, Window Management
+    haskellPackages.xmobar
     xorg.xmodmap
     xlibs.xmodmap
-    wget
-    git
-    vim
-    tmux
+    dmenu
+
+    # Web Browsing
     firefox
-    blender
-    sysbench
-    rustc
-    cargo
+    lynx
+
+    # Editors
+    vim
+
+    # Shell
     zsh
-    mkpasswd
-    python
-    python27Packages.virtualenv
-    ruby
-    docker
+    termite
+    oh-my-zsh
+
+    # Common *nix utils
+    socat
+    tmux
     zip
     unzip
-    pciutils
-    pamixer
-    paprefs
-    minetest
+    mkpasswd
+    dnsmasq
     htop
-    glxinfo
-    gimp
-    termite
-    dmenu
-    oh-my-zsh
+    pciutils
+    tgt
     lolcat
     jq
-    vscode
     tree
+    sysbench
+    wget
+    git
+    file
+    lsof
+    binutils
+
+    # Performance Testing
+    sysbench
+
+    # ---
+    # Development
+    # ----
+
+    # General
+    gnumake
+
+    # C
+    gcc
+
+    # Python and python packages
+    python
+    python27Packages.virtualenv
+    python27Packages.pykickstart
+
+    # Ruby
+    ruby
+
+    # Haskell
+    ghc
+
+    # Code editors, IDEs 
+    vscode
+
+    # OS and user-space emulation
+    docker
     qemu
-    chuck
-    gtypist
-    ffmpeg
-    audacity
+
+    # Rust
+    rustc
+    rust-src
+    cargo
     racer
+    racer
+
+    # ---
+    # AV and Games
+    # ---
+
+
+    # Audio
+    pamixer
+    paprefs
+    maim
+    alsaLib
+    fluidsynth
+    soundfont-fluid
     jack2
     jack_rack
     timemachine
+    audacity
+    chuck
+    qjackctl
+
+    # Photo Editing
+    gimp
+    blender
+
+    # Video
+    ffmpeg
     (pkgs.mplayer.override { jackaudioSupport = true; })
     (pkgs.mpv.override { jackaudioSupport = true; })
     (pkgs.blender.override { jackaudioSupport = true; })
-    qjackctl
-    sysbench
-    ghc
-    fluidsynth
-    soundfont-fluid
-    alsaLib
-    haskellPackages.xmobar
+
+    # Games, GFX Demos etc
+    minetest
+    glxinfo
+    gtypist
+    
   ];
 
   fonts = {
@@ -105,8 +161,11 @@
 
   # List services that you want to enable:
 
-  # nable the OpenSSH daemon.
+  # enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  # enable docker
+  virtualisation.docker.enable = true;
 
   # Enable sound.
   sound.enable = true;
@@ -145,6 +204,13 @@
     };
   };
 
+  # Remote desktop support
+  services.xrdp = {
+    enable = true;
+    defaultWindowManager = "${pkgs.haskellPackages.xmonad}/bin/xmonad";
+  };
+  networking.firewall.allowedTCPPorts = [ 3389 ];
+
   # Enable touchpad support.
   # services.xserver.libinput.enable = true;
 
@@ -161,7 +227,7 @@
     isNormalUser = true;
     home = "/home/dsmather";
     description = "Drew Smathers";
-    extraGroups = [ "audio" "wheel" "networkmanager" ];
+    extraGroups = [ "audio" "wheel" "networkmanager" "docker"];
     hashedPassword = "$6$6dxm0ny2cHwxhlQ$kzcaiMHaDzhT1lld91jCEaMHSLeU6QCNBjxZUixRj2QbVpH7Uhzg24ak53Qu4Ua1gH7UUGrfSJv7Tt66RlcWA1";
     openssh.authorizedKeys.keys = [
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDG1w8RG7zAv0zxBBfwq4xJu1JH7yCYvG8SAZTfoBLmRUvAUWtlvulxaG7xW9B+gsrCKG+4c2GgN2Q1+nT08qHlceD/2zCG5tTiZ/h0BYv3nQg7D2aJ+hRBHZI1taRgImo7V/iZNIS7KOxSL+QZOl23Id4T1I64I/32qkJT6viG6GSagQ3EZVb9yzZQoATV/WZjB7VylFp7hpwlvwBeSLYotgvhgEWPizj1a06v0+WsczvENx2evZFRjrNEejCED4N5F6G1RPMced1Wxo5SOKKhZA60aw6gGl+p6fTvDQTkwefjVdnS9YMghNSpvRfJQfha/LinQEWIHlpg2lW8HBKr dsmather@dsmather-mac"
@@ -173,13 +239,13 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     home = "/home/nzs";
-    extraGroups = [ "audio" "wheel" "networkmanager" ];
+    extraGroups = [ "audio" "wheel" "networkmanager" "docker"];
   };
   users.users.mzs = {
     shell = pkgs.zsh;
     isNormalUser = true;
     home = "/home/mzs";
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "docker"];
   };
 
 
