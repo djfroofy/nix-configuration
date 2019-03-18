@@ -9,6 +9,8 @@
 
     kernelPackages = pkgs.linuxPackages_4_20;
 
+    kernelModules = [ "kvm-amd" "kvm-intel" ];
+
     kernelParams = [
       "radeon.si_support=0"
       "radeon.cik_support=0"
@@ -17,12 +19,20 @@
     ];
 
 
+    plymouth = {
+      enable = true;
+    };
+
+
     loader = {
       grub = {
           enable = true;
           device = "nodev";
           version = 2;
           enableCryptodisk = true;
+          memtest86 = {
+            enable = true;
+          };
       };
     };
     
