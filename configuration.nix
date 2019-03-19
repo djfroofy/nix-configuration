@@ -29,6 +29,9 @@
     xlibs.xmodmap
     dmenu
 
+    # Screen, Mouse sharing
+    synergy
+
     # Web Browsing
     firefox
     lynx
