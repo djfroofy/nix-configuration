@@ -29,9 +29,6 @@
     xlibs.xmodmap
     dmenu
 
-    # Screen, Mouse sharing
-    synergy
-
     # Web Browsing
     firefox
     lynx
@@ -43,6 +40,10 @@
     zsh
     termite
     oh-my-zsh
+
+    # OS and user-space emulation
+    docker
+    qemu
 
     # Common *nix utils
     socat
@@ -57,86 +58,19 @@
     lolcat
     jq
     tree
-    sysbench
     wget
     git
     file
     lsof
     binutils
-    memtest86plus
     lshw
 
     # Performance Testing
     sysbench
+    
+    # HW Diagnostics
+    memtest86plus
 
-    # ---
-    # Development
-    # ----
-
-    # General
-    gnumake
-
-    # C
-    gcc
-
-    # Python and python packages
-    python
-    python27Packages.virtualenv
-    python27Packages.pykickstart
-
-    # Ruby
-    ruby
-
-    # Haskell
-    ghc
-
-    # Code editors, IDEs 
-    vscode
-
-    # OS and user-space emulation
-    docker
-    qemu
-
-    # Rust
-    rustc
-    rustPlatform.rustcSrc
-    cargo
-    racer
-    carnix
-
-    # ---
-    # AV and Games
-    # ---
-
-
-    # Audio
-    pamixer
-    paprefs
-    maim
-    alsaLib
-    fluidsynth
-    soundfont-fluid
-    jack2
-    jack_rack
-    timemachine
-    audacity
-    chuck
-    qjackctl
-
-    # Photo Editing
-    gimp
-    blender
-
-    # Video
-    ffmpeg
-    (pkgs.mplayer.override { jackaudioSupport = true; })
-    (pkgs.mpv.override { jackaudioSupport = true; })
-    (pkgs.blender.override { jackaudioSupport = true; })
-
-    # Games, GFX Demos etc
-    minetest
-    glxinfo
-    gtypist
     
   ];
 
@@ -166,8 +100,26 @@
 
   # List services that you want to enable:
 
-  # enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services = {
+    openssh.enable = true;
+    #printing = {
+    #  enable = true;
+    #  browsing = true;
+    #  defaultShared = true;
+    #  drivers = with pkgs; [
+    #    brlaser
+    #    brgenml1lpr
+    #    brgenml1cupswrapper
+    #  ];
+    #};
+    #avahi = {
+    #  enable = true;
+    #  publish = {
+    #    enable = true;
+    #    userServices = true;
+    #  };
+    #};
+  };
 
   # enable docker
   virtualisation.docker.enable = true;
@@ -209,12 +161,6 @@
     };
   };
 
-  # Remote desktop support
-  services.xrdp = {
-    enable = true;
-    defaultWindowManager = "${pkgs.haskellPackages.xmonad}/bin/xmonad";
-  };
-  networking.firewall.allowedTCPPorts = [ 3389 ];
 
   # Enable touchpad support.
   # services.xserver.libinput.enable = true;
@@ -260,6 +206,6 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "18.09"; # Did you read the comment?
+  system.stateVersion = "19.03"; # Did you read the comment?
 
 }
