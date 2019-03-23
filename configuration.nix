@@ -64,6 +64,7 @@
     lsof
     binutils
     lshw
+    iproute
 
     # Performance Testing
     sysbench
