@@ -19,9 +19,9 @@
     ];
 
 
-    plymouth = {
-      enable = true;
-    };
+    # plymouth = {
+    #   enable = true;
+    # };
 
 
     loader = {
