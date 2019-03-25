@@ -148,6 +148,10 @@
   services.xserver = {
     enable = true;
     layout = "us";
+    xautolock = {
+      enable = true;
+      time = 5;
+    };
     windowManager = {
       xmonad = {
         enable = true;
