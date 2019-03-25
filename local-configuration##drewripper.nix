@@ -7,7 +7,7 @@
 
   boot = {
 
-    kernelPackages = pkgs.linuxPackages_4_20;
+    kernelPackages = pkgs.linuxPackages_5_0;
 
     kernelModules = [ "kvm-amd" "kvm-intel" ];
 
@@ -19,9 +19,9 @@
     ];
 
 
-    # plymouth = {
-    #   enable = true;
-    # };
+    plymouth = {
+      enable = true;
+    };
 
 
     loader = {
@@ -57,6 +57,7 @@
     } ];
     defaultGateway = "192.168.1.1";
     nameservers = [ "8.8.8.8" ];
+    dhcpcd.enable = false;
   };
 
   hardware = {

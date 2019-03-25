@@ -65,6 +65,7 @@
     binutils
     lshw
     iproute
+    ncdu
 
     # Performance Testing
     sysbench
@@ -130,11 +131,11 @@
 
 
   programs = {
-
+  
     vim = {
       defaultEditor = true;
     };
-
+  
     zsh.ohMyZsh = {
       enable = true;
     };
@@ -162,9 +163,6 @@
     };
   };
 
-
-  # Enable touchpad support.
-  # services.xserver.libinput.enable = true;
 
   environment.variables = {
     TERMINAL =  [ "termite" ];
