@@ -41,6 +41,7 @@
     zsh
     termite
     oh-my-zsh
+    dropbear
 
     # OS and user-space emulation
     docker

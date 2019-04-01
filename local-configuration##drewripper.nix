@@ -33,6 +33,7 @@
           memtest86 = {
             enable = true;
           };
+          splashImage = ./nixos-splash.png;
       };
     };
     
@@ -44,6 +45,10 @@
           allowDiscards = true;
         }
     ];
+    initrd.network.ssh = {
+      enable = true;
+      hostEDSAKey = /run/keys/initrd-ssh-key;
+    };
   };
 
   networking = {
