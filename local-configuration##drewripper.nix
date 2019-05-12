@@ -7,7 +7,7 @@
 
   boot = {
 
-    kernelPackages = pkgs.linuxPackages_5_0;
+    kernelPackages = pkgs.linuxPackages_testing;
 
     kernelModules = [ "kvm-amd" "kvm-intel" ];
 
