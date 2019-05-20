@@ -14,10 +14,14 @@
   };
 
   imports = [
+    <musnix>
     ./hardware-configuration.nix
     ./local-configuration.nix
     ./users.nix
   ];
+  musnix.enable = true;
+  musnix.kernel.optimize = true;
+  musnix.kernel.realtime = true;
 
   time.timeZone = "America/Los_Angeles";
 
@@ -72,6 +76,8 @@
 
     # Performance Testing
     sysbench
+    flameGraph
+    linuxPackages.perf
     
     # HW Diagnostics
     memtest86plus
