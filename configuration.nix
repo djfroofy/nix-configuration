@@ -160,6 +160,10 @@
     xautolock = {
       enable = true;
       time = 5;
+      extraOptions = [
+        "-corners 0+00"
+        "-cornerdelay 1"
+      ];
       # enableNotifier = true;
       # notify = 30;
       # killer = "\${pkgs.systemd}/bin/systemctl suspend";
