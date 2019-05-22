@@ -74,11 +74,14 @@
   };
 
   musnix = {
+    enable = true;
     kernel = {
       realtime = true;
-      packages = pkgs.linuxPackages_4_19_rt;
+      optimize = true;
+      latencytop = true;
+      packages = pkgs.linuxPackages_5_0_rt;
     };
-    soundcardPciId = "0a:00.3";
+    #soundcardPciId = "0a:00.3";
   };
 
   

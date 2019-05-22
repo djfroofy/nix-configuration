@@ -19,9 +19,6 @@
     ./local-configuration.nix
     ./users.nix
   ];
-  musnix.enable = true;
-  musnix.kernel.optimize = true;
-  musnix.kernel.realtime = true;
 
   time.timeZone = "America/Los_Angeles";
 
