@@ -36,6 +36,9 @@
           allowDiscards = true;
         }
     ];
+    plymouth = {
+      enable = true;
+    };
   };
 
   networking = {
@@ -79,7 +82,7 @@
       realtime = true;
       optimize = true;
       latencytop = true;
-      packages = pkgs.linuxPackages_5_0_rt;
+      packages = pkgs.linuxPackages_latest_rt;
     };
     #soundcardPciId = "0a:00.3";
   };

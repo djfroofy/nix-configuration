@@ -15,7 +15,7 @@
     isNormalUser = true;
     home = "/home/dsmather";
     description = "Drew Smathers";
-    extraGroups = [ "audio" "wheel" "networkmanager" "docker"];
+    extraGroups = [ "audio" "wheel" "networkmanager" "docker" "dialout"];
     hashedPassword = "$6$V3zegIOS$cT/cGGtH9c5mMq3LSUo.FQ7JfsRRr9QFsV.ox0J1VN9R1/GXk.pPQAIce.WJMXvYZuO0ycNBmIHzgUSiul5a/1";
     openssh.authorizedKeys.keys = [
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDG1w8RG7zAv0zxBBfwq4xJu1JH7yCYvG8SAZTfoBLmRUvAUWtlvulxaG7xW9B+gsrCKG+4c2GgN2Q1+nT08qHlceD/2zCG5tTiZ/h0BYv3nQg7D2aJ+hRBHZI1taRgImo7V/iZNIS7KOxSL+QZOl23Id4T1I64I/32qkJT6viG6GSagQ3EZVb9yzZQoATV/WZjB7VylFp7hpwlvwBeSLYotgvhgEWPizj1a06v0+WsczvENx2evZFRjrNEejCED4N5F6G1RPMced1Wxo5SOKKhZA60aw6gGl+p6fTvDQTkwefjVdnS9YMghNSpvRfJQfha/LinQEWIHlpg2lW8HBKr dsmather@dsmather-mac"

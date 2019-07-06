@@ -27,13 +27,10 @@
   environment.systemPackages = with pkgs; [
 
     # X, Window Management
-    haskellPackages.xmobar
     xorg.xmodmap
     xlibs.xmodmap
-    dmenu
 
     # Web Browsing
-    firefox
     lynx
 
     # Editors
@@ -161,10 +158,6 @@
         "-corners 0+00"
         "-cornerdelay 1"
       ];
-      # enableNotifier = true;
-      # notify = 30;
-      # killer = "\${pkgs.systemd}/bin/systemctl suspend";
-      # killtime = 20;
     };
     windowManager = {
       xmonad = {
@@ -175,6 +168,7 @@
           haskellPackages.xmonad-extras
           haskellPackages.xmonad
           haskellPackages.xmobar
+          haskellPackages.xmonad-wallpaper
         ];
       };
       default = "xmonad";
