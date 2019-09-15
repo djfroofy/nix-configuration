@@ -77,11 +77,11 @@
   };
 
   musnix = {
-    enable = true;
+    enable = false;
     kernel = {
       realtime = true;
       optimize = true;
-      latencytop = true;
+      #latencytop = true;
       packages = pkgs.linuxPackages_latest_rt;
     };
     #soundcardPciId = "0a:00.3";
