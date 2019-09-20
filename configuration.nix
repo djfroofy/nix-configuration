@@ -14,7 +14,7 @@
   };
 
   imports = [
-    <musnix>
+    #<musnix>
     ./hardware-configuration.nix
     ./local-configuration.nix
     ./users.nix

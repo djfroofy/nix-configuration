@@ -14,6 +14,8 @@
       "amdgpu.cik_support=1"
     ];
 
+    kernelPackages = pkgs.linuxPackages_4_19;
+
     kernelModules = [
        "snd-seq"
        "snd-rawmidi"
@@ -46,10 +48,13 @@
     wireless = {
       enable = true;
     };
-    interfaces.wlp5s0.ipv4.addresses = [ {
-      address = "192.168.1.16";
-      prefixLength = 24;
-    } ];
+    interfaces.wlp5s0 = {
+      ipv4.addresses = [ {
+        address = "192.168.1.16";
+        prefixLength = 24;
+      }];
+      mtu = 2300;
+    };
     defaultGateway = "192.168.1.1";
     nameservers = [ "8.8.8.8" ];
     dhcpcd.enable = false;
@@ -76,17 +81,17 @@
     videoDrivers = [ "amdgpu" ];
   };
 
-  musnix = {
-    enable = false;
-    kernel = {
-      realtime = true;
-      optimize = true;
-      #latencytop = true;
-      packages = pkgs.linuxPackages_latest_rt;
-    };
-    #soundcardPciId = "0a:00.3";
-  };
-
+#  musnix = {
+#    enable = false;
+#    kernel = {
+#      realtime = true;
+#      optimize = true;
+#      #latencytop = true;
+#      packages = pkgs.linuxPackages_latest_rt;
+#    };
+#    #soundcardPciId = "0a:00.3";
+#  };
+#
   
    
 }
