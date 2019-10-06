@@ -67,7 +67,15 @@
   };
 
   services.xserver = {
-    synaptics.enable = true;
+    synaptics = {
+      enable = true;
+      twoFingerScroll = true;
+      horizTwoFingerScroll = true;
+      vertTwoFingerScroll = true;
+      accelFactor = "0.02";
+      minSpeed = "0.8";
+      maxSpeed = "4.0";
+    };
     #useGlamor = true;
     #deviceSection = ''
     #  Option "DRI" "3"
