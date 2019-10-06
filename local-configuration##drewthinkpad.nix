@@ -72,8 +72,8 @@
       twoFingerScroll = true;
       horizTwoFingerScroll = true;
       vertTwoFingerScroll = true;
-      accelFactor = "0.025";
-      minSpeed = "0.2";
+      accelFactor = "0.05";
+      minSpeed = "0.35";
       maxSpeed = "4.0";
     };
     #useGlamor = true;
