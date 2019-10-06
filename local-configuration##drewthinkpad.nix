@@ -72,9 +72,9 @@
       twoFingerScroll = true;
       horizTwoFingerScroll = true;
       vertTwoFingerScroll = true;
-      accelFactor = "0.015";
-      minSpeed = "0.5";
-      maxSpeed = "3.0";
+      accelFactor = "0.025";
+      minSpeed = "0.2";
+      maxSpeed = "4.0";
     };
     #useGlamor = true;
     #deviceSection = ''
