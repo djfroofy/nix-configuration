@@ -80,11 +80,6 @@
     # HW Diagnostics
     memtest86plus
 
-    # Other hardware
-    #fwupd
-    #fwupdate
-    yubikey-personalization
-    
   ];
 
   fonts = {
