@@ -67,6 +67,7 @@
     lshw
     iproute
     ncdu
+    tlp
 
     # Performance Testing
     sysbench
@@ -76,6 +77,10 @@
     # HW Diagnostics
     memtest86plus
 
+    # Other hardware
+    #fwupd
+    #fwupdate
+    yubikey-personalization
     
   ];
 
@@ -107,6 +112,10 @@
 
   services = {
     openssh.enable = true;
+    udev.packages = [ pkgs.yubikey-personalization
+                      pkgs.libu2f-host ];
+    pcscd.enable = true;
+
     #printing = {
     #  enable = true;
     #  browsing = true;
@@ -126,6 +135,7 @@
     #};
   };
 
+
   # enable docker
   virtualisation.docker.enable = true;
 
@@ -142,6 +152,8 @@
     zsh.ohMyZsh = {
       enable = true;
     };
+
+    ssh.startAgent = true;
 
   };
 
