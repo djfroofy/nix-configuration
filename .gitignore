@@ -2,3 +2,4 @@ strace.out
 hardware-configuration.nix
 local-configuration.nix
 nixos-splash.png
+users.nix
