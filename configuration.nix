@@ -36,6 +36,9 @@
     # Editors
     vim
 
+    # General
+    gnumake
+
     # Shell
     zsh
     termite
