@@ -18,6 +18,7 @@
     ./hardware-configuration.nix
     ./local-configuration.nix
     ./users.nix
+    ./work/configuration.nix
   ];
 
   time.timeZone = "America/Los_Angeles";
@@ -32,6 +33,8 @@
 
     # Web Browsing
     lynx
+    gnutls
+    openssl
 
     # Editors
     vim
@@ -61,7 +64,7 @@
     tgt
     lolcat
     jq
-    tree
+    tre
     wget
     git
     file
@@ -71,6 +74,13 @@
     iproute
     ncdu
     tlp
+    telnet
+
+    # Email related
+    #exim
+    mutt
+    mailcap
+  
 
     # Performance Testing
     sysbench
@@ -80,7 +90,9 @@
     # HW Diagnostics
     memtest86plus
 
-  ];
+  ] ++ (import ./work/packages.nix pkgs) ++ (import ./personal/packages.nix pkgs);
+  
+  # Notes on fonts: https://functor.tokyo/blog/2018-10-01-japanese-on-nixos
 
   fonts = {
     enableFontDir = true;
@@ -98,7 +110,32 @@
       terminus_font
       ttf_bitstream_vera
       ubuntu_font_family  
+      carlito
+      ipafont
+      kochi-substitute
     ];
+    fontconfig.ultimate.enable = true;
+    fontconfig.defaultFonts = {
+      monospace = [
+        "DejaVu Sans Mono"
+        "IPAGothic"
+      ];
+      sansSerif = [
+        "DejaVu Sans"
+        "IPAGothic"
+      ];
+      serif = [
+        "DejaVu Serif"
+        "IPAMincho"
+      ];
+    };
+  };
+
+  i18n = {
+    inputMethod = {
+      enabled = "fcitx";
+      fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -163,7 +200,7 @@
     layout = "us";
     xautolock = {
       enable = true;
-      time = 5;
+      time = 30;
       extraOptions = [
         "-corners 0+00"
         "-cornerdelay 1"
@@ -184,7 +221,6 @@
       default = "xmonad";
     };
   };
-
 
   environment.variables = {
     TERMINAL =  [ "termite" ];
