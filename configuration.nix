@@ -78,8 +78,6 @@
 
     # Email related
     #exim
-    mutt
-    mailcap
   
 
     # Performance Testing
@@ -205,6 +203,13 @@
         "-corners 0+00"
         "-cornerdelay 1"
       ];
+    };
+    libinput = {
+      enable = true;
+      naturalScrolling = true;
+      middleEmulation = true;
+      disableWhileTyping = true;
+      accelSpeed = "0.8";
     };
     windowManager = {
       xmonad = {

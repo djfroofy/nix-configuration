@@ -80,7 +80,7 @@
 
   services.xserver = {
     synaptics = {
-      enable = true;
+      enable = false;
       twoFingerScroll = true;
       horizTwoFingerScroll = true;
       vertTwoFingerScroll = true;
