@@ -10,6 +10,7 @@ do
         else
                 mkdir -p ${dropin}
                 echo "{ ... }: {}" > ${dropin}/home.nix
+                echo "{ ... }: {}" > ${dropin}/configuration.nix
                 echo "pkgs: with pkgs; []" > ${dropin}/packages.nix
                 echo "================================================================"
                 echo "Created stub directory for your ${dropin} configurations. At a later point"
@@ -21,5 +22,5 @@ do
         fi
 done
 
-nix-channel --add https://github.com/musnix/musnix/archive/master.tar.gz musnix
-nix-channel --update musnix
+sudo nix-channel --add https://github.com/musnix/musnix/archive/master.tar.gz musnix
+sudo nix-channel --update musnix
