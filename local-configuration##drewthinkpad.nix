@@ -55,10 +55,10 @@
 
   hardware = {
     enableAllFirmware = true;
-    #pulseaudio = {
-    #  enable = true;
+    pulseaudio = {
+      enable = true;
     #  package = pkgs.pulseaudioFull.override { jackaudioSupport = true; };
-    #};
+    };
     opengl = {
       driSupport32Bit = true;
       enable = true;
