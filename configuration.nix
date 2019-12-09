@@ -97,8 +97,10 @@
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       anonymousPro
+      b612
       corefonts
       dejavu_fonts
+      eunomia
       freefont_ttf
       google-fonts
       inconsolata
