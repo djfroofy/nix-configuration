@@ -78,18 +78,15 @@
 
     # Email related
     #exim
-  
 
     # Performance Testing
     sysbench
     flameGraph
     linuxPackages.perf
-    
     # HW Diagnostics
     memtest86plus
 
   ] ++ (import ./work/packages.nix pkgs) ++ (import ./personal/packages.nix pkgs);
-  
   # Notes on fonts: https://functor.tokyo/blog/2018-10-01-japanese-on-nixos
 
   fonts = {
@@ -109,7 +106,7 @@
       source-code-pro
       terminus_font
       ttf_bitstream_vera
-      ubuntu_font_family  
+      ubuntu_font_family
       carlito
       ipafont
       kochi-substitute
@@ -179,17 +176,13 @@
 
 
   programs = {
-  
     vim = {
       defaultEditor = true;
     };
-  
     zsh.ohMyZsh = {
       enable = true;
     };
-
     ssh.startAgent = true;
-
   };
 
 

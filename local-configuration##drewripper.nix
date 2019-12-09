@@ -36,7 +36,7 @@
           splashImage = ./nixos-splash.png;
       };
     };
-    
+
     initrd.luks.devices = [
         {
           name = "root";
@@ -86,6 +86,4 @@
     videoDrivers = [ "amdgpu" ];
   };
 
-  
-   
 }
