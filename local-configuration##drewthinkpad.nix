@@ -1,8 +1,7 @@
 # This is local configuration for my ThinkPad T490
 
 { config, pkgs, ...}:
-{ 
-  
+{
   boot = {
     kernelParams = [ "intel_pstate=no_hwp" ];
     kernelPackages = pkgs.linuxPackages_latest;
@@ -23,7 +22,7 @@
       };
       efi.canTouchEfiVariables = true;
     };
-    
+
     initrd.luks.devices = [
         {
           name = "root";
@@ -94,6 +93,7 @@
     #  Option "TearFree" "on"
     #  '';
     #videoDrivers = [ "amdgpu" ];
+    #videoDrivers = [ "nvidiaBeta" ];
   };
 
   fileSystems."/".options =  [ "noatime" "nodiratime" "discard" ];
