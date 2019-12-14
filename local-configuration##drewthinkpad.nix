@@ -9,6 +9,7 @@
     kernelModules = [
        "snd-seq"
        "snd-rawmidi"
+       "kvm-intel"
     ];
 
     loader = {
