@@ -14,9 +14,9 @@
       "amdgpu.cik_support=1"
     ];
 
-    #kernelPackages = pkgs.linuxPackages_latest;
     #kernelPackages = pkgs.linuxPackages_4_19;
-    kernelPackages = pkgs.linuxPackages_latest;
+    #kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_testing;
 
     kernelModules = [
        "snd-seq"

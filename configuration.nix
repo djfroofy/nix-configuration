@@ -25,70 +25,10 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages =
+       (import ./work/packages.nix pkgs) ++ (import ./personal/packages.nix pkgs);
 
-    # X, Window Management
-    xorg.xmodmap
-    xlibs.xmodmap
-
-    # Web Browsing
-    lynx
-    gnutls
-    openssl
-
-    # Editors
-    vim
-
-    # General
-    gnumake
-
-    # Shell
-    zsh
-    termite
-    oh-my-zsh
-    dropbear
-
-    # OS and user-space emulation
-    docker
-    qemu
-
-    # Common *nix utils
-    socat
-    tmux
-    zip
-    unzip
-    mkpasswd
-    dnsmasq
-    htop
-    pciutils
-    tgt
-    lolcat
-    jq
-    tre
-    wget
-    git
-    file
-    lsof
-    binutils
-    lshw
-    iproute
-    ncdu
-    tlp
-    telnet
-
-    # Email related
-    #exim
-
-    # Performance Testing
-    sysbench
-    flameGraph
-    linuxPackages.perf
-    # HW Diagnostics
-    memtest86plus
-
-  ] ++ (import ./work/packages.nix pkgs) ++ (import ./personal/packages.nix pkgs);
   # Notes on fonts: https://functor.tokyo/blog/2018-10-01-japanese-on-nixos
-
   fonts = {
     enableFontDir = true;
     enableGhostscriptFonts = true;
