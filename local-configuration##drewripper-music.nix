@@ -14,13 +14,20 @@
       "amdgpu.cik_support=1"
     ];
 
-    kernelPackages = pkgs.linuxPackages_latest;
+    #kernelPackages = pkgs.linuxPackages_latest;
     #kernelPackages = pkgs.linuxPackages_4_19;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     kernelModules = [
        "snd-seq"
        "snd-rawmidi"
     ];
+
+    kernel = {
+      sysctl = {
+        "vm.swappiness" = 5;
+      };
+    };
 
     loader = {
       grub = {
@@ -30,11 +37,11 @@
           enableCryptodisk = true;
       };
     };
-    
+
     initrd.luks.devices = [
         {
           name = "root";
-          device = "/dev/disk/by-uuid/a1c7d532-adc5-4b80-83f3-d59bfef75315"; # UUID for /dev/nvme01np2 
+          device = "/dev/disk/by-uuid/a1c7d532-adc5-4b80-83f3-d59bfef75315"; # UUID for /dev/nvme01np2
           preLVM = true;
           allowDiscards = true;
         }
@@ -95,6 +102,4 @@
 #    #soundcardPciId = "0a:00.3";
 #  };
 #
-  
-   
 }
