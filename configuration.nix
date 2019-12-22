@@ -132,10 +132,10 @@
     xautolock = {
       enable = true;
       time = 30;
-      extraOptions = [
-        "-corners 0+00"
-        "-cornerdelay 1"
-      ];
+      #extraOptions = [
+      #  "-corners 0+00"
+      #  "-cornerdelay 1"
+      #];
     };
     libinput = {
       enable = true;
