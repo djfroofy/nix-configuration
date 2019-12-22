@@ -4,7 +4,7 @@
 {
   boot = {
     kernelParams = [ "intel_pstate=no_hwp" ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_testing;
 
     kernelModules = [
        "snd-seq"
@@ -40,8 +40,9 @@
   networking = {
     hostName = "drewthinkpad";
     wireless = {
-      enable = true;
+      enable = false;
     };
+    networkmanager.enable = true;
     #interfaces.wlp5s0 = {
     #  ipv4.addresses = [ {
     #    address = "192.168.1.16";

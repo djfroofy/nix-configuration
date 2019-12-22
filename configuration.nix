@@ -111,7 +111,7 @@
       ipafont
       kochi-substitute
     ];
-    fontconfig.ultimate.enable = true;
+    #fontconfig.ultimate.enable = true;
     fontconfig.defaultFonts = {
       monospace = [
         "DejaVu Sans Mono"
@@ -185,8 +185,6 @@
     ssh.startAgent = true;
   };
 
-
-
   # Enable X window manager and xfce as default desktopManager
   services.xserver = {
     enable = true;
@@ -218,8 +216,9 @@
           haskellPackages.xmonad-wallpaper
         ];
       };
-      default = "xmonad";
+      #default = "none+xmonad";
     };
+    displayManager.defaultSession = "none+xmonad";
   };
 
   environment.variables = {
