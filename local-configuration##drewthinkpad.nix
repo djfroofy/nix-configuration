@@ -4,7 +4,7 @@
 {
   boot = {
     kernelParams = [ "intel_pstate=no_hwp" ];
-    kernelPackages = pkgs.linuxPackages_testing;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     kernelModules = [
        "snd-seq"
@@ -27,7 +27,7 @@
     initrd.luks.devices = [
         {
           name = "root";
-          device = "/dev/disk/by-uuid/69f61735-98e3-46ce-ab9a-b28573708481";
+          device = "/dev/disk/by-uuid/5a077266-c0f4-4e55-afe6-e225c5eaab6e";
           preLVM = true;
           allowDiscards = true;
         }

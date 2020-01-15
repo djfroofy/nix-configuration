@@ -156,9 +156,9 @@
           haskellPackages.xmonad-wallpaper
         ];
       };
-      #default = "none+xmonad";
+      default = "xmonad";
     };
-    displayManager.defaultSession = "none+xmonad";
+    #displayManager.defaultSession = "none+xmonad";
   };
 
   environment.variables = {
