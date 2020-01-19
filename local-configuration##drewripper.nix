@@ -7,7 +7,7 @@
 
   boot = {
 
-    kernelPackages = pkgs.linuxPackages_testing;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     kernelModules = [ "kvm-amd" "kvm-intel" ];
 
@@ -34,14 +34,14 @@
           memtest86 = {
             enable = true;
           };
-          splashImage = ./nixos-splash.png;
+          splashImage = ./media/nixos-splash.png;
       };
     };
 
     initrd.luks.devices = [
         {
           name = "root";
-          device = "/dev/disk/by-uuid/a1c7d532-adc5-4b80-83f3-d59bfef75315"; # UUID for /dev/nvme01np2 
+          device = "/dev/disk/by-uuid/a1c7d532-adc5-4b80-83f3-d59bfef75315"; # UUID for /dev/nvme01np2
           preLVM = true;
           allowDiscards = true;
         }
