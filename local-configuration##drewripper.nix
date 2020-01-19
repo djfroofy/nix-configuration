@@ -16,6 +16,7 @@
       "radeon.cik_support=0"
       "amdgpu.si_support=1"
       "amdgpu.cik_support=1"
+      "pci=nommconf"
     ];
 
 
