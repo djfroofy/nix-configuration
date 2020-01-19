@@ -20,6 +20,7 @@
           enableCryptodisk = true;
           efiSupport = true;
           gfxmodeEfi = "1024x780";
+          splashImage = ./media/nixos-splash.png;
       };
       efi.canTouchEfiVariables = true;
     };
