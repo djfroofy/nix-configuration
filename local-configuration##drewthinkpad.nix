@@ -60,12 +60,14 @@
     enableAllFirmware = true;
     pulseaudio = {
       enable = true;
+      package = pkgs.pulseaudioFull;
     #  package = pkgs.pulseaudioFull.override { jackaudioSupport = true; };
     };
     opengl = {
       driSupport32Bit = true;
       enable = true;
     };
+    bluetooth.enable = true;
   };
 
   systemd.packages = [ pkgs.tlp ];

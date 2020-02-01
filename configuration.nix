@@ -125,6 +125,8 @@
     ssh.startAgent = true;
   };
 
+  #services.blueman.enable = true;
+
   # Enable X window manager and xfce as default desktopManager
   services.xserver = {
     enable = true;
