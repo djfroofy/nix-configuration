@@ -88,16 +88,18 @@
                       pkgs.libu2f-host ];
     pcscd.enable = true;
 
-    #printing = {
-    #  enable = true;
+    printing = {
+      enable = true;
     #  browsing = true;
     #  defaultShared = true;
-    #  drivers = with pkgs; [
-    #    brlaser
-    #    brgenml1lpr
-    #    brgenml1cupswrapper
-    #  ];
-    #};
+      drivers = with pkgs; [
+        brlaser
+        brgenml1lpr
+        brgenml1cupswrapper
+        hll2390dw-cups
+      ];
+    };
+
     #avahi = {
     #  enable = true;
     #  publish = {
