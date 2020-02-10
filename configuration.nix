@@ -165,12 +165,14 @@
     #displayManager.defaultSession = "none+xmonad";
   };
 
+  # X compositor
   services.compton = {
     enable = true;
     fade = true;
     fadeDelta = 5;
     inactiveOpacity = "0.93";
     shadow = true;
+    backend = "glx";
   };
 
   environment.variables = {
