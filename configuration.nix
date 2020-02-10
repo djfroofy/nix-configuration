@@ -165,6 +165,14 @@
     #displayManager.defaultSession = "none+xmonad";
   };
 
+  services.compton = {
+    enable = true;
+    fade = true;
+    fadeDelta = 5;
+    inactiveOpacity = "0.93";
+    shadow = true;
+  };
+
   environment.variables = {
     TERMINAL =  [ "termite" ];
     OH_MY_ZSH = [ "${pkgs.oh-my-zsh}/share/oh-my-zsh" ];
