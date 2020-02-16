@@ -52,6 +52,8 @@
     };
   };
 
+  services.compton.enable = true;
+
   networking = {
     hostName = "drewripper";
     wireless = {

@@ -167,13 +167,15 @@
 
   # X compositor
   services.compton = {
-    enable = true;
+    # to enable add the follow to local-configuration.nix:
+    # services.compton.enable = true;
     fade = true;
     fadeDelta = 5;
     inactiveOpacity = "0.93";
     shadow = true;
     backend = "glx";
   };
+
 
   environment.variables = {
     TERMINAL =  [ "termite" ];
