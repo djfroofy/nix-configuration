@@ -19,6 +19,14 @@ Choose or create a local configuration file that works best for your current mac
     # create symlink to local configuration (drewripper is my setup for home desktop)
     ln -s local-configuration\#\#drewripper.nix local-configuration.nix 
 
+## Run setup to create personal and work dropins
+
+From the current directory run:
+
+    ./setup
+
+This will create stubs for personal and work dropins.
+
 ## Copy users-example and update
 
     cp users-example.nix users.nix

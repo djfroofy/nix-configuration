@@ -19,6 +19,7 @@
     ./local-configuration.nix
     ./users.nix
     ./work/configuration.nix
+    ./desktop-manager.nix
   ];
 
   time.timeZone = "America/Los_Angeles";
@@ -109,26 +110,6 @@
     #};
   };
 
-
-  # enable docker
-  virtualisation.docker.enable = true;
-
-  # Enable sound.
-  sound.enable = true;
-
-
-  programs = {
-    vim = {
-      defaultEditor = true;
-    };
-    zsh.ohMyZsh = {
-      enable = true;
-    };
-    ssh.startAgent = true;
-  };
-
-  #services.blueman.enable = true;
-
   # Enable X window manager and xfce as default desktopManager
   services.xserver = {
     enable = true;
@@ -148,21 +129,24 @@
       disableWhileTyping = true;
       accelSpeed = "0.8";
     };
-    windowManager = {
-      xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-        extraPackages = haskellPackages: [
-          haskellPackages.xmonad-contrib
-          haskellPackages.xmonad-extras
-          haskellPackages.xmonad
-          haskellPackages.xmobar
-          haskellPackages.xmonad-wallpaper
-        ];
-      };
-      default = "xmonad";
+  };
+
+
+  # enable docker
+  virtualisation.docker.enable = true;
+
+  # Enable sound.
+  sound.enable = true;
+
+
+  programs = {
+    vim = {
+      defaultEditor = true;
     };
-    #displayManager.defaultSession = "none+xmonad";
+    zsh.ohMyZsh = {
+      enable = true;
+    };
+    ssh.startAgent = true;
   };
 
   # X compositor

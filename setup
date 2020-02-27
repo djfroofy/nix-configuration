@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# vi: ft=bash
 
 set -euf -o pipefail
 
@@ -22,5 +23,13 @@ do
         fi
 done
 
-sudo nix-channel --add https://github.com/musnix/musnix/archive/master.tar.gz musnix
-sudo nix-channel --update musnix
+if [[ ! -f $PWD/desktop-manager.nix ]]; then
+        echo linking $PWD/desktop-manager/xmonad.nix to $PWD/desktop-manager.nix
+        ln -s $PWD/desktop-manager/xmonad.nix $PWD/desktop-manager.nix
+else
+        echo $PWD/desktop-manager.nix already exists, skipping
+fi
+
+# Uncomment the following if you'd like to enable RT kernel from musnix
+# sudo nix-channel --add https://github.com/musnix/musnix/archive/master.tar.gz musnix
+# sudo nix-channel --update musnix
