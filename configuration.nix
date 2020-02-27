@@ -1,4 +1,4 @@
-# DO NOT FORGET TO RUN ./setup.sh FIRST
+# DO NOT FORGET TO RUN ./setup FIRST
 
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
