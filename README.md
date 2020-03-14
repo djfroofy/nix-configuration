@@ -32,4 +32,3 @@ This will create stubs for personal and work dropins.
     cp users-example.nix users.nix
     # edit to your preferred users
     $EDITOR users.nix
-

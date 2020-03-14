@@ -16,6 +16,7 @@
   imports = [
     #<musnix>
     ./hardware-configuration.nix
+    # machine configuration (todo: should be renamed machine.nix
     ./local-configuration.nix
     ./users.nix
     ./work/configuration.nix

@@ -72,6 +72,8 @@
 
   systemd.packages = [ pkgs.tlp ];
 
+  services.compton.enable = false;
+
   services.tlp = {
     enable = false;
     extraConfig = ''
