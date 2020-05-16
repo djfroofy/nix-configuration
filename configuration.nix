@@ -73,7 +73,7 @@
   i18n = {
     inputMethod = {
       enabled = "fcitx";
-      fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
+      fcitx.engines = with pkgs.fcitx-engines; [ mozc libpinyin ];
     };
   };
 
@@ -150,6 +150,11 @@
     ssh.startAgent = true;
   };
 
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "qt";
+  };
+
   # X compositor
   services.compton = {
     # to enable add the follow to local-configuration.nix:
@@ -176,6 +181,6 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.09"; # Did you read the comment?
+  system.stateVersion = "20.03"; # Did you read the comment?
 
 }
