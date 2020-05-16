@@ -148,11 +148,10 @@
       enable = true;
     };
     ssh.startAgent = true;
-  };
-
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryFlavor = "qt";
+    gnupg.agent = {
+      enable = true;
+      pinentryFlavor = "qt";
+    };
   };
 
   # X compositor
