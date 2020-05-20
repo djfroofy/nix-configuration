@@ -21,6 +21,7 @@
     ./users.nix
     ./work/configuration.nix
     ./desktop-manager.nix
+    ./printing.nix
   ];
 
   time.timeZone = "America/Los_Angeles";
@@ -86,21 +87,11 @@
 
   services = {
     openssh.enable = true;
-    udev.packages = [ pkgs.yubikey-personalization
-                      pkgs.libu2f-host ];
+    udev.packages = with pkgs; [
+      yubikey-personalization
+      libu2f-host
+    ];
     pcscd.enable = true;
-
-    printing = {
-      enable = true;
-    #  browsing = true;
-    #  defaultShared = true;
-      drivers = with pkgs; [
-        brlaser
-        brgenml1lpr
-        brgenml1cupswrapper
-        hll2390dw-cups
-      ];
-    };
 
     #avahi = {
     #  enable = true;

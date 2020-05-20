@@ -12,6 +12,7 @@ do
                 mkdir -p ${dropin}
                 echo "{ ... }: {}" > ${dropin}/home.nix
                 echo "{ ... }: {}" > ${dropin}/configuration.nix
+                echo "{ ... }: {}" > ${dropin}/printing.nix
                 echo "pkgs: with pkgs; []" > ${dropin}/packages.nix
                 echo "================================================================"
                 echo "Created stub directory for your ${dropin} configurations. At a later point"
@@ -22,6 +23,13 @@ do
                 echo "================================================================"
         fi
 done
+
+if [[ ! -f printing.nix ]]; then
+        echo "linking $PWD/examples/printing.nix to $PWD/printing.nix"
+        ln -s $PWD/examples/printing.nix $PWD/printing.nix
+else
+        echo $PWD/printing.nix already exists, skipping
+fi
 
 if [[ ! -f $PWD/desktop-manager.nix ]]; then
         echo linking $PWD/desktop-manager/xmonad.nix to $PWD/desktop-manager.nix
