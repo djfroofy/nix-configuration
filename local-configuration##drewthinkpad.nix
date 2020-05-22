@@ -25,14 +25,13 @@
       efi.canTouchEfiVariables = true;
     };
 
-    initrd.luks.devices = [
-        {
-          name = "root";
+    initrd.luks.devices = {
+        root = {
           device = "/dev/disk/by-uuid/5a077266-c0f4-4e55-afe6-e225c5eaab6e";
           preLVM = true;
           allowDiscards = true;
-        }
-    ];
+        };
+    };
     plymouth = {
       enable = true;
     };

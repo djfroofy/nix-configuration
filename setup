@@ -13,6 +13,7 @@ do
                 echo "{ ... }: {}" > ${dropin}/home.nix
                 echo "{ ... }: {}" > ${dropin}/configuration.nix
                 echo "{ ... }: {}" > ${dropin}/printing.nix
+                echo "[]" > ${dropin}/printers.nix
                 echo "pkgs: with pkgs; []" > ${dropin}/packages.nix
                 echo "================================================================"
                 echo "Created stub directory for your ${dropin} configurations. At a later point"

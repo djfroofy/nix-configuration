@@ -38,14 +38,13 @@
       };
     };
 
-    initrd.luks.devices = [
-        {
-          name = "root";
-          device = "/dev/disk/by-uuid/a1c7d532-adc5-4b80-83f3-d59bfef75315"; # UUID for /dev/nvme01np2
-          preLVM = true;
-          allowDiscards = true;
-        }
-    ];
+    initrd.luks.devices = {
+      root = {
+        device = "/dev/disk/by-uuid/a1c7d532-adc5-4b80-83f3-d59bfef75315"; # UUID for /dev/nvme01np2
+        preLVM = true;
+        allowDiscards = true;
+      };
+    };
     plymouth = {
       enable = true;
     };

@@ -16,9 +16,9 @@
         ];
       };
       # remove this line at when migrating from 19.09 to 20.03
-      default = "xmonad";
+      # default = "xmonad";
     };
     # uncomment the following line when migrating from 19.09 to 20.03
-    # displayManager.defaultSession = "none+xmonad";
+    displayManager.defaultSession = "none+xmonad";
   };
 }

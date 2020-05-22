@@ -27,25 +27,25 @@
 
     loader = {
       grub = {
+        enable = true;
+        device = "nodev";
+        version = 2;
+        enableCryptodisk = true;
+        memtest86 = {
           enable = true;
-          device = "nodev";
-          version = 2;
-          enableCryptodisk = true;
-          memtest86 = {
-            enable = true;
-          };
-          splashImage = ./media/nixos-splash.png;
+        };
+        splashImage = ./media/nixos-splash.png;
       };
     };
 
-    initrd.luks.devices = [
-        {
-          name = "root";
-          device = "/dev/disk/by-uuid/a1c7d532-adc5-4b80-83f3-d59bfef75315"; # UUID for /dev/nvme01np2
-          preLVM = true;
-          allowDiscards = true;
-        }
-    ];
+    initrd.luks.devices = {
+      root = {
+        device = "/dev/disk/by-uuid/a1c7d532-adc5-4b80-83f3-d59bfef75315"; # UUID for /dev/nvme01np2
+        preLVM = true;
+        allowDiscards = true;
+      };
+    };
+
     initrd.network.ssh = {
       enable = true;
       hostEDSAKey = /run/keys/initrd-ssh-key;
