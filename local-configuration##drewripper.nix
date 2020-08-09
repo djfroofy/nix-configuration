@@ -68,16 +68,38 @@
     dhcpcd.enable = false;
   };
 
+  #sound.extraConfig =
+  #  ''
+  #    pcm.!default {
+  #      type plug
+  #      slave.pcm hw
+  #    }
+  #  '';
+
   hardware = {
     enableAllFirmware = true;
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
-      # package = pkgs.pulseaudioFull.override { jackaudioSupport = true; };
+      support32Bit = true;
+      #package = pkgs.pulseaudioFull.override { jackaudioSupport = true; };
+      daemon.config = {
+        default-sample-format = "float32le";
+        default-sample-rate = "48000";
+        alternate-sample-rate = "44100";
+        default-sample-channels = "2";
+        #default-fragments = "2";
+        #default-fragment-size-msec = "125";
+        enable-lfe-remixing = "no";
+        realtime-scheduling = "yes";
+        flat-volumes = "no";
+        resample-method = "soxr-hq";
+      };
     };
     opengl = {
-      driSupport32Bit = true;
       enable = true;
+      driSupport32Bit = true;
+      extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
     };
     bluetooth.enable = true;
   };
@@ -88,7 +110,7 @@
       Option "DRI" "3"
       Option "TearFree" "on"
       '';
-    videoDrivers = [ "amdgpu" ];
+    videoDrivers = [ "amdgpu" "amdvlk" ];
   };
 
 }
