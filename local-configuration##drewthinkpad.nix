@@ -7,8 +7,8 @@
     kernelPackages = pkgs.linuxPackages_latest;
 
     kernelModules = [
-       "snd-seq"
-       "snd-rawmidi"
+       #"snd-seq"
+       #"snd-rawmidi"
        "kvm-intel"
     ];
 
@@ -61,6 +61,12 @@
       enable = true;
       package = pkgs.pulseaudioFull;
     #  package = pkgs.pulseaudioFull.override { jackaudioSupport = true; };
+      daemon = {
+        config = {
+          default-sample-format = "s24le";
+          default-sample-rate = 192000;
+        };
+      };
     };
     opengl = {
       driSupport32Bit = true;

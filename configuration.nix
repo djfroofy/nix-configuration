@@ -24,7 +24,7 @@
     ./printing.nix
   ];
 
-  time.timeZone = "America/Los_Angeles";
+  #time.timeZone = "America/Los_Angeles";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -86,6 +86,7 @@
   # List services that you want to enable:
 
   services = {
+    localtime.enable = true;
     openssh.enable = true;
     udev.packages = with pkgs; [
       yubikey-personalization
@@ -172,5 +173,4 @@
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "20.03"; # Did you read the comment?
-
 }
