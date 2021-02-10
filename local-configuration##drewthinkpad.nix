@@ -2,6 +2,11 @@
 
 { config, pkgs, ...}:
 {
+
+  imports = [
+    <nixos-hardware/lenovo/thinkpad/t480s/default.nix>
+  ];
+
   boot = {
     kernelParams = [ "intel_pstate=no_hwp" ];
     kernelPackages = pkgs.linuxPackages_latest;
@@ -75,19 +80,22 @@
     bluetooth.enable = true;
   };
 
-  systemd.packages = [ pkgs.tlp ];
+  powerManagement.cpuFreqGovernor = "performance";
+
 
   services.compton.enable = false;
 
-  services.tlp = {
-    enable = false;
-    extraConfig = ''
-    CPU_MIN_PERF_ON_AC=0
-    CPU_MAX_PERF_ON_AC=100
-    CPU_MIN_PERF_ON_BAT=0
-    CPU_MAX_PERF_ON_BAT=30
-    '';
-  };
+
+  # systemd.packages = [ pkgs.tlp ];
+  #services.tlp = {
+  #  enable = false;
+  #  extraConfig = ''
+  #  CPU_MIN_PERF_ON_AC=0
+  #  CPU_MAX_PERF_ON_AC=100
+  #  CPU_MIN_PERF_ON_BAT=0
+  #  CPU_MAX_PERF_ON_BAT=30
+  #  '';
+  #};
 
   services.xserver = {
     synaptics = {
