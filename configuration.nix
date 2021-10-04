@@ -33,7 +33,7 @@
 
   # Notes on fonts: https://functor.tokyo/blog/2018-10-01-japanese-on-nixos
   fonts = {
-    enableFontDir = true;
+    fontDir.enable = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       anonymousPro
@@ -74,7 +74,8 @@
   i18n = {
     inputMethod = {
       enabled = "fcitx";
-      fcitx.engines = with pkgs.fcitx-engines; [ mozc libpinyin ];
+      # fcitx.engines = with pkgs.fcitx-engines; [ mozc libpinyin anthy ];
+      fcitx.engines = with pkgs.fcitx-engines; [ anthy ];
     };
   };
 
@@ -117,10 +118,12 @@
     };
     libinput = {
       enable = true;
-      naturalScrolling = true;
-      middleEmulation = true;
-      disableWhileTyping = true;
-      accelSpeed = "0.8";
+      touchpad = {
+        naturalScrolling = true;
+        middleEmulation = true;
+        disableWhileTyping = true;
+        accelSpeed = "0.8";
+      };
     };
   };
 
@@ -145,6 +148,9 @@
       pinentryFlavor = "qt";
     };
   };
+
+  # pairing bluetooth devices
+  #services.blueman.enable = true;
 
   # X compositor
   services.compton = {
@@ -172,5 +178,5 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "20.09"; # Did you read the comment?
+  system.stateVersion = "21.05"; # Did you read the comment?
 }
