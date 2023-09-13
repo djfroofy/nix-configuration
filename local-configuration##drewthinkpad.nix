@@ -21,7 +21,7 @@
       grub = {
           enable = true;
           device = "nodev";
-          version = 2;
+          #version = 2;
           enableCryptodisk = true;
           efiSupport = true;
           gfxmodeEfi = "1024x780";
@@ -65,7 +65,7 @@
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
-      extraModules = [ pkgs.pulseaudio-modules-bt ];
+      #extraModules = [ pkgs.pulseaudio-modules-bt ];
     #  package = pkgs.pulseaudioFull.override { jackaudioSupport = true; };
       daemon = {
         config = {

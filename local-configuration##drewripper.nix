@@ -29,7 +29,7 @@
       grub = {
         enable = true;
         device = "nodev";
-        version = 2;
+        #version = 2;
         enableCryptodisk = true;
         memtest86 = {
           enable = true;

@@ -12,7 +12,7 @@
           haskellPackages.xmonad-extras
           haskellPackages.xmonad
           haskellPackages.xmobar
-          haskellPackages.xmonad-wallpaper
+          #haskellPackages.xmonad-wallpaper
         ];
       };
       # remove this line at when migrating from 19.09 to 20.03
