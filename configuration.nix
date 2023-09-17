@@ -149,11 +149,12 @@
       defaultEditor = true;
     };
     zsh = {
-      enable = true;
+      enable = false;
       ohMyZsh = {
-        enable = true;
+        enable = false;
       };
     };
+    fish.enable = true;
     ssh.startAgent = true;
     gnupg.agent = {
       enable = true;
@@ -165,12 +166,12 @@
   #services.blueman.enable = true;
 
   # X compositor
-  services.compton = {
+  services.picom = {
     # to enable add the follow to local-configuration.nix:
     # services.compton.enable = true;
     fade = true;
     fadeDelta = 5;
-    inactiveOpacity = "0.93";
+    inactiveOpacity = 0.93;
     shadow = true;
     backend = "glx";
   };
