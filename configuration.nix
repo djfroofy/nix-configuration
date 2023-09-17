@@ -24,7 +24,7 @@
     ./printing.nix
   ];
 
-  #time.timeZone = "America/Los_Angeles";
+  time.timeZone = "America/Los_Angeles";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -89,8 +89,15 @@
   # List services that you want to enable:
 
   services = {
-    localtimed.enable = true;
-    openssh.enable = true;
+    localtimed.enable = false;
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false;
+        PermitRootLogin = "no";
+        X11Forwarding = true;
+      };
+    };
     udev.packages = with pkgs; [
       yubikey-personalization
       libu2f-host
