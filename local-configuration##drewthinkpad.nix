@@ -84,7 +84,7 @@
   powerManagement.cpuFreqGovernor = "performance";
 
 
-  services.compton.enable = false;
+  services.picom.enable = false;
 
 
   # systemd.packages = [ pkgs.tlp ];

@@ -179,7 +179,7 @@
   # X compositor
   services.picom = {
     # to enable add the follow to local-configuration.nix:
-    # services.compton.enable = true;
+    # services.picom.enable = true;
     fade = true;
     fadeDelta = 5;
     inactiveOpacity = 0.93;
@@ -196,19 +196,6 @@
   };
 
   services.trezord.enable = true;
-
-  # udev ruls for trezor - this should be refactored
-#   services.udev.extraRules = ''
-# # Trezor
-# "SUBSYSTEM=="usb", ATTR{idVendor}=="534c", ATTR{idProduct}=="0001", MODE="0660", GROUP="plugdev", TAG+="uaccess", TAG+="udev-acl", SYMLINK+="trezor%n"
-# KERNEL=="hidraw*", ATTRS{idVendor}=="534c", ATTRS{idProduct}=="0001", MODE="0660", GROUP="plugdev", TAG+="uaccess", TAG+="udev-acl"
-#
-# # Trezor v2
-# SUBSYSTEM=="usb", ATTR{idVendor}=="1209", ATTR{idProduct}=="53c0", MODE="0660", GROUP="plugdev", TAG+="uaccess", TAG+="udev-acl", SYMLINK+="trezor%n"
-# SUBSYSTEM=="usb", ATTR{idVendor}=="1209", ATTR{idProduct}=="53c1", MODE="0660", GROUP="plugdev", TAG+="uaccess", TAG+="udev-acl", SYMLINK+="trezor%n"
-# KERNEL=="hidraw*", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="53c1", MODE="0660", GROUP="plugdev", TAG+="uaccess", TAG+="udev-acl"
- # '';
-
 
   security.sudo.wheelNeedsPassword = false;
 
