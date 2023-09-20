@@ -189,7 +189,7 @@
 
 
   environment.variables = {
-    TERMINAL =  [ "kitty" ];
+    TERMINAL =  [ "alacritty" ];
     OH_MY_ZSH = [ "${pkgs.oh-my-zsh}/share/oh-my-zsh" ];
     ZSH = [ "${pkgs.oh-my-zsh}/share/oh-my-zsh" ];
 
